@@ -32,14 +32,13 @@ public class Macabalang_Module3_LabAct2 {
 
     static void printHeader() {
         System.out.printf("%-8s %-42s %-10s %s%n", "Symbol", "Action", "Stack", "Output");
-        System.out.println("-".repeat(80));
+        System.out.println("=".repeat(80));
     }
 
     static void printRow(String symbol, String action, Stack<Character> stack, StringBuilder out) {
         System.out.printf("%-8s %-42s %-10s %s%n", symbol, action, stackToString(stack), out);
     }
 
-    // forPrefix = true means: pop only when the top has HIGHER precedence
     static String convert(String exp, boolean forPrefix) {
         Stack<Character> stack = new Stack<>();
         StringBuilder out = new StringBuilder();
@@ -119,12 +118,10 @@ public class Macabalang_Module3_LabAct2 {
         String infix = "((A+(B*(C/A)))-(B/C))";
 
         System.out.println("Infix: " + infix);
-
-        System.out.println("\n=== Conversion to Postfix Notation ===");
+        System.out.println("\nConversion to Postfix Notation\n");
         String postfix = convert(infix, false);
         System.out.println("Postfix: " + postfix);
-
-        System.out.println("\n=== Conversion to Prefix Notation ===");
+        System.out.println("\nConversion to Prefix Notation\n");
         String reversed = reverseAndSwap(infix);
         System.out.println("Reversed expression (parentheses swapped): " + reversed);
         String temp = convert(reversed, true);
